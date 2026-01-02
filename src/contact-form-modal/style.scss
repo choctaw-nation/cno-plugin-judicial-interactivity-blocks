@@ -1,0 +1,26 @@
+.wp-block-cno-staff-contact-modal {
+	top: 50%;
+	translate: 0% -50%;
+	border: 0;
+	padding: 0;
+
+	&::backdrop {
+		background-color: rgb(0 0 0 / 50%);
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem;
+		border-bottom: 1px solid var(--wp--preset--color--dark);
+	}
+
+	&__title {
+		margin-bottom: 0;
+	}
+
+	&__body {
+		padding: 1rem;
+	}
+}

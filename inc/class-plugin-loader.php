@@ -3,10 +3,10 @@
  * Plugin Loader
  *
  * @package ChoctawNation
- * @subpackage PluginStarter
+ * @subpackage JudicialBlocks
  */
 
-namespace ChoctawNation;
+namespace ChoctawNation\JudicialBlocks;
 
 /** Inits the Plugin */
 class Plugin_Loader {
@@ -18,12 +18,24 @@ class Plugin_Loader {
 	private string $dir_path;
 
 	/**
+	 * The directory URL of the plugin
+	 *
+	 * @var string $dir_url
+	 */
+	private string $dir_url;
+
+	/**
 	 * Constructor
 	 *
 	 * @param string $dir_path The directory path of the plugin
+	 * @param string $dir_url The directory URL of the plugin
 	 */
-	public function __construct( string $dir_path ) {
+	public function __construct( string $dir_path, string $dir_url ) {
+		// wp_die( 'Plugin Loader initialized' );
 		$this->dir_path = $dir_path;
+		$this->dir_url  = $dir_url;
+		add_action( 'init', array( $this, 'register_blocks' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_assets' ) );
 	}
 
 	/**
@@ -32,7 +44,7 @@ class Plugin_Loader {
 	 * @return void
 	 */
 	public function activate(): void {
-		_doing_it_wrong( __METHOD__, 'Method not implemented yet', '1.1.0' );
+		// No actions required on activation currently.
 	}
 
 	/**
@@ -42,14 +54,14 @@ class Plugin_Loader {
 	 * @return void
 	 */
 	public function deactivate(): void {
-		_doing_it_wrong( __METHOD__, 'Method not implemented yet', '1.1.0' );
+		// No actions required on deactivation currently.
 	}
 
 	/**
 	 * Register Gutenberg Block
 	 */
-	public function register_block() {
-		$blocks_path = $this->dir_path;
+	public function register_blocks() {
+		$blocks_path = $this->dir_path . 'build/';
 		/**
 		 * Registers the block(s) metadata from the `blocks-manifest.php` and registers the block type(s)
 		 * based on the registered block metadata.
@@ -58,7 +70,7 @@ class Plugin_Loader {
 		 * @see https://make.wordpress.org/core/2025/03/13/more-efficient-block-type-registration-in-6-8/
 		 */
 		if ( function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
-			wp_register_block_types_from_metadata_collection( $blocks_path, $blocks_path . '/build/blocks-manifest.php' );
+			wp_register_block_types_from_metadata_collection( $blocks_path, $blocks_path . 'blocks-manifest.php' );
 			return;
 		}
 
@@ -69,16 +81,39 @@ class Plugin_Loader {
 		 * @see https://make.wordpress.org/core/2024/10/17/new-block-type-registration-apis-to-improve-performance-in-wordpress-6-7/
 		 */
 		if ( function_exists( 'wp_register_block_metadata_collection' ) ) {
-			wp_register_block_metadata_collection( $blocks_path, $blocks_path . '/build/blocks-manifest.php' );
+			wp_register_block_metadata_collection( $blocks_path, $blocks_path . 'blocks-manifest.php' );
 		}
 		/**
 		 * Registers the block type(s) in the `blocks-manifest.php` file.
 		 *
 		 * @see https://developer.wordpress.org/reference/functions/register_block_type/
 		 */
-		$manifest_data = require $blocks_path . '/build/blocks-manifest.php';
+		$manifest_data = require $blocks_path . 'blocks-manifest.php';
 		foreach ( array_keys( $manifest_data ) as $block_type ) {
 			register_block_type( $blocks_path . "/{$block_type}" );
 		}
+	}
+
+	/**
+	 * Load Script to handle Modal Block insertion
+	 */
+	public function enqueue_block_assets() {
+		$asset_file = $this->dir_path . 'build/insertStaffModalBlock.asset.php';
+		if ( ! file_exists( $this->dir_path . 'build/insertStaffModalBlock.js' ) ) {
+			_wp_scripts_maybe_doing_it_wrong(
+				'insert-staff-modal-block-editor-script',
+				'The insertStaffModalBlock.js file is missing. Please run the build process to generate the necessary files.',
+				'1.0.0'
+			);
+			return;
+		}
+		$asset_file = require $asset_file;
+		wp_enqueue_script(
+			'insert-staff-modal-block-editor-script',
+			$this->dir_url . 'build/insertStaffModalBlock.js',
+			$asset_file['dependencies'],
+			$asset_file['version'],
+			array( 'strategy' => 'defer' )
+		);
 	}
 }

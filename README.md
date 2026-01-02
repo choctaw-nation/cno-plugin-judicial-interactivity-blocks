@@ -1,18 +1,9 @@
-# CNO Template--Plugin
+# Choctaw Judicial Interactivity Blocks
 
-A quick scaffolding for plugins.
+Adds custom Gutenberg blocks for the Choctaw Judicial site that use the Interactivity API.
 
-## To Dos:
+## Changelog
 
--   [ ] Update File Headers
-    -   [ ] Set the subpackage in File Headers (e.g. `@subpackage Events`)
-    -   [ ] Update `package.json` and `composer.json` to reflect the name of your plugin
-    -   [ ] Update `index.php`
--   [ ] Namespace your classes as `ChoctawNation\Sub Package Name` (e.g. `namespace ChoctawNation\Events`)
--   [ ] Update the `index.php` file to `cno-[plugin-name].php`
--   [ ] Update the `deploy.yml` with the appropriate file name
--   [ ] Update the `package.json` `files` key with the needed files to include when building the plugin
--   [ ] Overwrite this readme!
--   [ ] Run `npm install` and `composer install`
+### 1.0.0 - [January 2, 2026]
 
-[View the Changelog here](./CHANGELOG.md)
+-   Init blocks
