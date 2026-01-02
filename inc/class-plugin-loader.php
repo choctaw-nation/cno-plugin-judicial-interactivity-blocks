@@ -31,7 +31,6 @@ class Plugin_Loader {
 	 * @param string $dir_url The directory URL of the plugin
 	 */
 	public function __construct( string $dir_path, string $dir_url ) {
-		// wp_die( 'Plugin Loader initialized' );
 		$this->dir_path = $dir_path;
 		$this->dir_url  = $dir_url;
 		add_action( 'init', array( $this, 'register_blocks' ) );
