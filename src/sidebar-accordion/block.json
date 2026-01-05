@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cno/sidebar-accordion",
+	"version": "1.0.0",
+	"title": "Sidebar Accordion",
+	"category": "widgets",
+	"icon": "list-view",
+	"description": "Display a collapsible menu in the sidebar",
+	"keywords": ["menu", "sidebar", "collapse", "accordion"],
+	"allowedBlocks": [
+		"cno/courts-menu",
+		"cno/tribal-services-menu",
+		"core/list",
+		"core/list-item",
+		"core/paragraph"
+	],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "",
+			"source": "html",
+			"selector": "button.accordion-button"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "primary"
+		},
+		"accordionId": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": false,
+		"multiple": true,
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"editorScript": "file:./index.tsx",
+	"viewScriptModule": "file:./view.ts",
+	"style": "file:./style-index.css"
+}

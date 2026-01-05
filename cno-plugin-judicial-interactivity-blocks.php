@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Choctaw Plugin Starter
- * Plugin URI: https://github.com/choctaw-nation/cno-template-plugin
- * Description: Quick Boilerplate for starting a new plugin
- * Version: 1.2.1
+ * Plugin Name: Choctaw Judicial Theme Blocks
+ * Plugin URI: https://github.com/choctaw-nation/cno-plugin-judicial-interactivity-blocks/
+ * Description: Adds custom Gutenberg blocks that require the WP Interactivity API.
+ * Version: 1.0.1
  * Author: Choctaw Nation of Oklahoma
  * Author URI: https://www.choctawnation.com
  * Text Domain: cno
@@ -12,19 +12,20 @@
  * Requires PHP: 8.2
  * Requires at least: 6.7.0
  * Tested up to: 6.9.0
+ * Requires Plugins: gravityforms
  *
  * @package ChoctawNation
- * @subpackage PluginStarter
+ * @subpackage JudicialBlocks
  */
 
-use ChoctawNation\Plugin_Loader;
+use ChoctawNation\JudicialBlocks\Plugin_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
 require_once __DIR__ . '/inc/class-plugin-loader.php';
-$plugin_loader = new Plugin_Loader( plugin_dir_path( __FILE__ ) );
+$plugin_loader = new Plugin_Loader( plugin_dir_path( __FILE__ ), plugin_dir_url( __FILE__ ) );
 
 register_activation_hook( __FILE__, array( $plugin_loader, 'activate' ) );
 register_deactivation_hook( __FILE__, array( $plugin_loader, 'deactivate' ) );

@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cno/staff-contact-form",
+	"version": "1.0.0",
+	"title": "Staff Contact Form",
+	"category": "embed",
+	"icon": "list-view",
+	"description": "Enable a staff member to be contacted via email. Powered by Gravity Forms",
+	"example": {},
+	"keywords": [ "form", "contact", "staff", "gravity", "button" ],
+	"attributes": {
+		"buttonText": {
+			"type": "string",
+			"default": "Contact Form"
+		},
+		"emailAddress": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": false,
+		"color": {
+			"text": true,
+			"background": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"typography": {
+			"fontSize": true
+		},
+		"dimensions": {
+			"width": false
+		},
+		"interactivity": true
+	},
+	"editorScript": "file:./index.tsx",
+	"viewScriptModule": "file:./view.ts",
+	"style": "file:./style-index.css"
+}

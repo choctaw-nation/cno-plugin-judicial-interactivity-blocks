@@ -1,6 +1,6 @@
 {
-	"name": "choctaw-nation/choctaw-plugin-template",
-	"description": "A plugin template for the Choctaw nation",
+	"name": "choctaw-nation/judicial-interactivity-blocks",
+	"description": "Adds custom Gutenberg blocks for the Choctaw Judicial site that use the Interactivity API.",
 	"type": "project",
 	"config": {
 		"allow-plugins": {
@@ -9,11 +9,10 @@
 		}
 	},
 	"scripts": {
-		"phpcs": "phpcs inc/ index.php",
-		"phpcbf": "phpcbf inc/ index.php"
+		"phpcs": "phpcs inc/ cno-plugin-judicial-interactivity-blocks.php",
+		"phpcbf": "phpcbf inc/ cno-plugin-judicial-interactivity-blocks.php"
 	},
 	"require-dev": {
-		"wp-coding-standards/wpcs": "*",
-		"php-stubs/acf-pro-stubs": "*"
+		"wp-coding-standards/wpcs": "*"
 	}
 }
