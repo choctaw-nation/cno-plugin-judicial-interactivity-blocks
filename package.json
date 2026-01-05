@@ -1,6 +1,6 @@
 {
 	"name": "cno-plugin-judicial-interactivity-blocks",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Adds custom Gutenberg blocks for the Choctaw Judicial site that use the Interactivity API.",
 	"prettier": "@wordpress/prettier-config",
 	"browserslist": [
@@ -22,12 +22,9 @@
 		"plugin-zip": "wp-scripts build --blocks-manifest --experimental-modules --webpack-copy-php && wp-scripts plugin-zip",
 		"start": "wp-scripts start --blocks-manifest --experimental-modules --webpack-copy-php"
 	},
-	"dependencies": {
-		"@wordpress/interactivity": "^6.37.0"
-	},
 	"devDependencies": {
-		"@eslint/compat": "^2",
-		"@eslint/eslintrc": "^3",
+		"@eslint/compat": "^2.0.0",
+		"@eslint/eslintrc": "^3.3.3",
 		"@wordpress/block-editor": "^15.10.0",
 		"@wordpress/blocks": "^15.10.0",
 		"@wordpress/components": "^31.0.0",
@@ -37,14 +34,15 @@
 		"@wordpress/element": "^6.37.0",
 		"@wordpress/eslint-plugin": "^23.0.0",
 		"@wordpress/icons": "^11.4.0",
+		"@wordpress/interactivity": "^6.37.0",
 		"@wordpress/scripts": "^31.2.0",
-		"eslint": "^9",
-		"eslint-config-prettier": "^10",
-		"eslint-import-resolver-typescript": "^4",
-		"eslint-plugin-react-hooks": "^7",
-		"globals": "^17",
-		"stylelint": "^16",
-		"stylelint-config-standard-scss": "^16",
-		"stylelint-scss": "^6"
+		"eslint": "^9.39.2",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-import-resolver-typescript": "^4.4.4",
+		"eslint-plugin-react-hooks": "^7.0.1",
+		"globals": "^17.0.0",
+		"stylelint": "^16.26.1",
+		"stylelint-config-standard-scss": "^16.0.0",
+		"stylelint-scss": "^6.14.0"
 	}
 }

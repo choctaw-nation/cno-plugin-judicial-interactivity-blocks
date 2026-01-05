@@ -40,6 +40,6 @@
 		}
 	},
 	"editorScript": "file:./index.tsx",
-	"viewScriptModule": "file:./handleAccordionNavs.ts",
+	"viewScriptModule": "file:./view.ts",
 	"style": "file:./style-index.css"
 }

@@ -1,12 +1,11 @@
-import {
-	useBlockProps,
-	RichText,
-	useInnerBlocksProps,
-} from '@wordpress/block-editor';
+import { useBlockProps, RichText, useInnerBlocksProps } from '@wordpress/block-editor';
+import { useEffect } from '@wordpress/element';
 
 export default function Edit( { attributes, setAttributes, clientId } ) {
 	const { title } = attributes;
-	setAttributes( { accordionId: `accordion-${ clientId }` } );
+	useEffect( () => {
+		setAttributes( { accordionId: `accordion-${ clientId }` } );
+	}, [ clientId, setAttributes ] );
 	const blockProps = useBlockProps();
 	const { innerBlocksProps, children } = useInnerBlocksProps( blockProps, {
 		template: [

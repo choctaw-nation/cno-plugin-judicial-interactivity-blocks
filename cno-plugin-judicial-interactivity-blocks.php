@@ -3,7 +3,7 @@
  * Plugin Name: Choctaw Judicial Theme Blocks
  * Plugin URI: https://github.com/choctaw-nation/cno-plugin-judicial-interactivity-blocks/
  * Description: Adds custom Gutenberg blocks that require the WP Interactivity API.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Choctaw Nation of Oklahoma
  * Author URI: https://www.choctawnation.com
  * Text Domain: cno
