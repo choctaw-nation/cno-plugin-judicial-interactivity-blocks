@@ -26,7 +26,7 @@ registerBlockType( metadata.name, {
 			} );
 		return (
 			<div { ...blockProps } data-wp-interactive="cno/sidebar-accordion" data-wp-context={ JSON.stringify( { isMenuOpen: true } ) } data-wp-on-window--resize="callbacks.updateToggleState"
-				data-wp-on-document--load="callbacks.updateToggleState">
+				data-wp-init="callbacks.updateToggleState">
 				<div className="accordion-item text-bg-primary">
 					<h2 className="accordion-header">
 						<RichText.Content

@@ -4,6 +4,11 @@ Adds custom Gutenberg blocks for the Choctaw Judicial site that use the Interact
 
 ## Changelog
 
+### 1.0.2 - [January 5, 2026]
+
+- Fixed: Sidebars start closed on mobile views
+- Chore: Update packages
+
 ### 1.0.1 - [January 5, 2026]
 
 - Bug: Optimize sidebar accordion ID to update on client-id change (instead of every render)
